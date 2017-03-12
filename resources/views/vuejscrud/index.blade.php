@@ -17,7 +17,7 @@
     <div class="form-group">
     </div>
     <div class="col-md-12">
-      <button type="button" data-toggle="modal" data-target="#create-item" class="btn btn-primary">
+      <button type="button" data-toggle="modal" data-target="#create-item" class="btn btn-success">
         Capturar nuevo empleado
       </button>      
     </div>
@@ -41,7 +41,7 @@
           <td>@{{ item.date_of_birth }}</td>
           <td>$ @{{ item.salary }}</td>
           <td>
-            <button class="edit-modal btn btn-warning" @click.prevent="editItem(item)">
+            <button class="edit-modal btn btn-success" @click.prevent="editItem(item)">
               <span class="glyphicon glyphicon-edit"></span> Editar
             </button>
             <button class="edit-modal btn btn-danger" @click.prevent="deleteItem(item)">
@@ -120,7 +120,7 @@
               </span>
             </div>
             <div class="form-group">
-              <button type="submit" class="btn btn-success">Submit</button>
+              <button type="submit" class="btn btn-success">Enviar</button>
             </div>
           </form>
         </div>

@@ -14,7 +14,7 @@ class PDFController extends Controller
       view()->share('empleados',$empleados);
 
       if($req->has('downloadexcel')){
-        Excel::create('users', function($excel) use ($empleados) {
+        Excel::create('empleados', function($excel) use ($empleados) {
           $excel->sheet('Sheet 1', function($sheet) use ($empleados) {
             $sheet->fromArray($empleados);
           });
