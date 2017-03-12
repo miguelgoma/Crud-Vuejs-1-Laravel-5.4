@@ -26,6 +26,7 @@
     <div class="table-responsive">
       <table class="table table-borderless">
         <tr>
+          <th>Id</th>
           <th>Nombre</th>
           <th>Apellido Paterno</th>
           <th>Apellido Materno</th>
@@ -33,6 +34,7 @@
           <th>Salario Anual</th>
         </tr>
         <tr v-for="item in items">
+          <td>@{{ item.id }}</td>
           <td>@{{ item.name }}</td>
           <td>@{{ item.firstname }}</td>
           <td>@{{ item.lastname }}</td>
@@ -69,7 +71,20 @@
       </li>
     </ul>
   </nav>
-  <!-- Create Item Modal -->
+  <!--Reports-->
+  <div class="container">
+      <h2>REPORTES</h2>
+      <div class="btn-group">
+        <button class="btn btn-primary btn-xs dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Exportar datos <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu">
+          <!--<li><a href="{{route('htmltopdf',['downloadpdf'=>'pdf'])}}">En PDF</a></li>-->
+          <li><a href="{{ route('htmltopdf',['downloadexcel'=>'excel']) }}">En Excel</a></li>
+        </ul>
+      </div>
+    </div>
+  <!-- Modal -->
   <div class="modal fade" id="create-item" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
@@ -124,7 +139,7 @@
       </div>
     </div>
   </div>
-<!-- Edit Item Modal -->
+<!-- Edit Modal Window-->
 <div class="modal fade" id="edit-item" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">

@@ -95,15 +95,21 @@ new Vue({
     },
     searchEmpleado: function(item) {
       var item = $( "#idbuscar" ).val();
-      alert(item);
-      $( "#idbuscar" ).val("");
-      this.fillItem.name = item.name;
-      this.fillItem.id = item.id;
-      this.fillItem.firstname = item.firstname;
-      this.fillItem.lastname = item.lastname;
-      this.fillItem.date_of_birth = item.date_of_birth;
-      this.fillItem.salary = item.salary;
-      $("#edit-item").modal('show');
+      var myRegEx  = /^([a-zA-Z0-9 _-]+)$/;
+      var isValid = !(myRegEx.test(item));
+      if (isValid) {
+        toastr.error('Caracteres no permitidos', 'Error!', {timeOut: 5000});
+      }else{
+          $( "#idbuscar" ).val("");
+          this.fillItem.name = item.name;
+          this.fillItem.id = item.id;
+          this.fillItem.firstname = item.firstname;
+          this.fillItem.lastname = item.lastname;
+          this.fillItem.date_of_birth = item.date_of_birth;
+          this.fillItem.salary = item.salary;
+          $("#edit-item").modal('show');
+      }
+      
     },
   }
 });
