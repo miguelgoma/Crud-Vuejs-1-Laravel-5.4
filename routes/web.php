@@ -18,5 +18,6 @@ Route::get('/', function () {
 Route::group(['middleware' => ['web']], function() {
   Route::get('/vuejscrud', 'EmpleadosController@vueCrud');
   Route::resource('vueitems','EmpleadosController');
+  Route::get('findemp/',array('as'=>'htmltopdf','uses'=>'SearchController@index'));
   Route::get('/vuejscrud/htmltopdf',array('as'=>'htmltopdf','uses'=>'PDFController@index'));
 });

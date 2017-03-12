@@ -95,21 +95,17 @@ new Vue({
     },
     searchEmpleado: function(item) {
       var item = $( "#idbuscar" ).val();
-      var myRegEx  = /^([a-zA-Z0-9 _-]+)$/;
+      var myRegEx  = /^([a-zA-Z0-9]+)$/;
       var isValid = !(myRegEx.test(item));
       $( "#idbuscar" ).val("");
       if (isValid) {
         toastr.error('Caracteres no permitidos', 'Error!', {timeOut: 5000});
       }else{
-          this.fillItem.name = item.name;
-          this.fillItem.id = item.id;
-          this.fillItem.firstname = item.firstname;
-          this.fillItem.lastname = item.lastname;
-          this.fillItem.date_of_birth = item.date_of_birth;
-          this.fillItem.salary = item.salary;
-          $("#edit-item").modal('show');
+        this.$http.get('/findemp?id='+item).then((response) => {
+        this.$set('items', response.data.data.data);
+        this.$set('pagination', response.data.pagination);
+        });
       }
-      
     },
   }
 });

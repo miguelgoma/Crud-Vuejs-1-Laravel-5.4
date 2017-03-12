@@ -2,15 +2,15 @@
 @section('content')
   <div class="form-group row add">
     <div class="col-md-12">
-      <h1>Empleados</h1>
+      <h1><a href="http://mikeingenia.herokuapp.com/vuejscrud">Empleados</a></h1>
     </div>
     <div class="collapse navbar-collapse" id="navbarCollapse">
         <form method="post" enctype="multipart/form-data" v-on:submit.prevent="searchEmpleado(fillItem.id)">
             <form class="form-inline mt-2 mt-md-0">
-              <input class="form-control mr-sm-2" id='idbuscar' placeholder="id o nombre" type="text">
+              <input class="form-control mr-sm-2" id='idbuscar' placeholder="Búscar por Id o nombre. Ejemplo: miguel" type="text">
               <button class="btn btn-info" id="search">
                   <span class="glyphicon glyphicon-search"></span> Buscar empleado
-                </button>
+              </button>
             </form>
         </form>
       </div>
