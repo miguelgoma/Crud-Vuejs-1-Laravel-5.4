@@ -9,6 +9,7 @@
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link href="css/justified-nav.css" rel="stylesheet">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -17,9 +18,36 @@
     <![endif]-->
   </head>
   <body>
-    <div class="container" id="manage-vue">
+    <div class="container">
+      <div class="masthead">
+        <nav class="navbar navbar-light bg-faded rounded mb-3"></nav>
+      </div>
+        <div class="container" id="manage-vue">
       @yield('content')
     </div>
+    
+    <hr>
+    <div class="row">
+        <div class="col-lg-4">
+            <h2>Reportes</h2>
+            <div class="btn-group">
+                <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Exportar datos <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu">
+                  <!--<li><a href="{{route('htmltopdf',['downloadpdf'=>'pdf'])}}">En PDF</a></li>-->
+                  <li><a href="{{ route('htmltopdf',['downloadexcel'=>'excel']) }}">En Excel</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-lg-4"></div>
+        <div class="col-lg-4"></div>
+        </div>
+        <footer class="footer">
+            <p>&copy; Company 2017</p>
+        </footer>
+    </div>
+
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->

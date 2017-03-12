@@ -56,7 +56,7 @@ new Vue({
         this.changePage(this.pagination.current_page);
         this.newItem = {'name':'','firstname':'','lastname':'','date_of_birth':'','salary':''};
         $("#create-item").modal('hide');
-        toastr.success('Se ha creado un nuevo registro.', 'Success Alert', {timeOut: 5000});
+        toastr.success('Se ha creado un nuevo registro.', 'Mensaje:', {timeOut: 5000});
       }, (response) => {
         this.formErrors = response.data;
       });
@@ -64,7 +64,7 @@ new Vue({
     deleteItem: function(item) {
       this.$http.delete('/vueitems/'+item.id).then((response) => {
         this.changePage(this.pagination.current_page);
-        toastr.success('Se ha borrado exitosamente.', 'Success Alert', {timeOut: 5000});
+        toastr.success('Se ha borrado exitosamente.', 'Mensaje:', {timeOut: 5000});
       });
     },
     editItem: function(item) {
@@ -84,7 +84,7 @@ new Vue({
       this.$http.put('/vueitems/'+id,input).then((response) => {
         this.changePage(this.pagination.current_page);
         $("#edit-item").modal('hide');
-        toastr.success('Actualización exitosa.', 'Success Alert', {timeOut: 5000});
+        toastr.success('Actualización exitosa.', 'Mensaje:', {timeOut: 5000});
       }, (response) => {
         this.formErrors = response.data;
       });
@@ -97,10 +97,10 @@ new Vue({
       var item = $( "#idbuscar" ).val();
       var myRegEx  = /^([a-zA-Z0-9 _-]+)$/;
       var isValid = !(myRegEx.test(item));
+      $( "#idbuscar" ).val("");
       if (isValid) {
         toastr.error('Caracteres no permitidos', 'Error!', {timeOut: 5000});
       }else{
-          $( "#idbuscar" ).val("");
           this.fillItem.name = item.name;
           this.fillItem.id = item.id;
           this.fillItem.firstname = item.firstname;

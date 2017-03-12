@@ -72,18 +72,6 @@
     </ul>
   </nav>
   <!--Reports-->
-  <div class="container">
-      <h2>REPORTES</h2>
-      <div class="btn-group">
-        <button class="btn btn-primary btn-xs dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Exportar datos <span class="caret"></span>
-        </button>
-        <ul class="dropdown-menu">
-          <!--<li><a href="{{route('htmltopdf',['downloadpdf'=>'pdf'])}}">En PDF</a></li>-->
-          <li><a href="{{ route('htmltopdf',['downloadexcel'=>'excel']) }}">En Excel</a></li>
-        </ul>
-      </div>
-    </div>
   <!-- Modal -->
   <div class="modal fade" id="create-item" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog" role="document">
