@@ -18,7 +18,7 @@
     </div>
     <div class="col-md-12">
       <button type="button" data-toggle="modal" data-target="#create-item" class="btn btn-success">
-        Capturar nuevo empleado
+        <span class="glyphicon glyphicon-user"></span> Capturar nuevo empleado
       </button>      
     </div>
   </div>
@@ -80,44 +80,47 @@
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">×</span>
           </button>
-          <h4 class="modal-title" id="myModalLabel">Capturar nuevo empleado</h4>
+          <h4 class="modal-title" id="myModalLabel"><span class="glyphicon glyphicon-user"></span> Capture los datos del empleado</h4>
         </div>
         <div class="modal-body">
           <form method="post" enctype="multipart/form-data" v-on:submit.prevent="createItem">
             <div class="form-group">
               <label for="title">Nombre:</label>
-              <input type="text" name="name" class="form-control" v-model="newItem.name" />
+              <input type="text" name="name" class="form-control" v-model="newItem.name" placeholder="Nombre"/>
               <span v-if="formErrors['name']" class="error text-danger">
                 @{{ formErrors['title'] }}
               </span>
             </div>
             <div class="form-group">
               <label for="title">Apellido Paterno:</label>
-              <input type="text" name="firstname" class="form-control" v-model="newItem.firstname" />
+              <input type="text" name="firstname" class="form-control" v-model="newItem.firstname" placeholder="Apellido Paterno"/>
               <span v-if="formErrors['firstname']" class="error text-danger">
                 @{{ formErrors['firstname'] }}
               </span>
             </div>
             <div class="form-group">
               <label for="title">Apellido Materno:</label>
-              <input type="text" name="lastname" class="form-control" v-model="newItem.lastname" />
+              <input type="text" name="lastname" class="form-control" v-model="newItem.lastname" placeholder="Apellido Materno"/>
               <span v-if="formErrors['lastname']" class="error text-danger">
                 @{{ formErrors['lastname'] }}
               </span>
             </div>
             <div class="form-group">
-              <label for="title">Fecha de nacimiento:</label>
-              <input type="text" name="date_of_birth" class="form-control" v-model="newItem.date_of_birth" />
+              <label for="title">Fecha de nacimiento (día-mes-año):</label>
+              <input type="text" name="date_of_birth" id="f_date_of_birth" class="form-control" v-model="newItem.date_of_birth" placeholder="Fecha de nacimiento"/>
               <span v-if="formErrors['date_of_birth']" class="error text-danger">
                 @{{ formErrors['date_of_birth'] }}
               </span>
             </div>
             <div class="form-group">
               <label for="title">Salario Anual:</label>
-              <input type="text" name="salary" class="form-control" v-model="newItem.salary" />
-              <span v-if="formErrors['salary']" class="error text-danger">
-                @{{ formErrors['salary'] }}
-              </span>
+              <div class="input-group">
+                  <span class="input-group-addon">$</span>
+                  <input type="text" name="salary" class="form-control" v-model="newItem.salary" placeholder="Salario Anual"/>
+                  <span v-if="formErrors['salary']" class="error text-danger">
+                    @{{ formErrors['salary'] }}
+                  </span>
+              </div>
             </div>
             <div class="form-group">
               <button type="submit" class="btn btn-success">Enviar</button>
@@ -135,7 +138,7 @@
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">×</span>
         </button>
-        <h4 class="modal-title" id="myModalLabel">Editar empleado</h4>
+        <h4 class="modal-title" id="myModalLabel"><span class="glyphicon glyphicon-user"></span> Editar empleado</h4>
       </div>
       <div class="modal-body">
         <form method="post" enctype="multipart/form-data" v-on:submit.prevent="updateItem(fillItem.id)">
@@ -161,17 +164,20 @@
             </span>
           </div>
           <div class="form-group">
-            <label for="title">Fecha de nacimiento:</label>
-            <input type="text" name="date_of_birth" class="form-control" v-model="fillItem.date_of_birth" />
+            <label for="title">Fecha de nacimiento (día-mes-año):</label>
+            <input type="text" name="date_of_birth" id="m_date_of_birth" class="form-control" v-model="fillItem.date_of_birth" />
             <span v-if="formErrorsUpdate['date_of_birth']" class="error text-danger">
               @{{ formErrorsUpdate['date_of_birth'] }}
             </span>
           </div>
           <div class="form-group">
             <label for="title">Salario Anual:</label>
-            <input type="text" name="salary" class="form-control" v-model="fillItem.salary" />
-            <span v-if="formErrorsUpdate['salary']" class="error text-danger">
-              @{{ formErrorsUpdate['salary'] }}
+            <div class="input-group">
+                <span class="input-group-addon">$</span>
+                <input type="text" name="salary" class="form-control" v-model="fillItem.salary" />
+                <span v-if="formErrorsUpdate['salary']" class="error text-danger">
+                  @{{ formErrorsUpdate['salary'] }}
+            </div>
             </span>
           </div>
           <div class="form-group">

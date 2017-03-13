@@ -51,6 +51,10 @@ new Vue({
       });
     },
     createItem: function() {
+      var fnac = $( "#f_date_of_birth" ).val();
+      var res = fnac.split("-"); 
+      var db = res[2]+'-'+res[1]+'-'+res[0];
+      this.newItem.date_of_birth = db;
       var input = this.newItem;
       this.$http.post('/vueitems',input).then((response) => {
         this.changePage(this.pagination.current_page);
@@ -72,15 +76,19 @@ new Vue({
       this.fillItem.id = item.id;
       this.fillItem.firstname = item.firstname;
       this.fillItem.lastname = item.lastname;
-      //var res = item.date_of_birth.split("-"); 
-      //var db = res[2]+'-'+res[1]+'-'+res[0];
-      //this.fillItem.date_of_birth = db;
-      this.fillItem.date_of_birth = item.date_of_birth;
+      var res = item.date_of_birth.split("-"); 
+      var db = res[2]+'-'+res[1]+'-'+res[0];
+      this.fillItem.date_of_birth = db;
+      //this.fillItem.date_of_birth = item.date_of_birth;
       this.fillItem.salary = item.salary;
       $("#edit-item").modal('show');
     },
     updateItem: function(id) {
-      var input = this.fillItem;      
+      var fnac = $( "#m_date_of_birth" ).val();
+      var res = fnac.split("-"); 
+      var db = res[2]+'-'+res[1]+'-'+res[0];
+      this.fillItem.date_of_birth = db;
+      var input = this.fillItem;
       this.$http.put('/vueitems/'+id,input).then((response) => {
         this.changePage(this.pagination.current_page);
         $("#edit-item").modal('hide');

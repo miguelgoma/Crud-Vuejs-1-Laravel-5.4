@@ -32,7 +32,7 @@
             <h2>Reportes</h2>
             <div class="btn-group">
                 <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  Exportar datos <span class="caret"></span>
+                  <span class="glyphicon glyphicon-circle-arrow-down" aria-hidden="true"> Exportar datos <span class="caret"></span>
                 </button>
                 <ul class="dropdown-menu">
                   <!--<li><a href="{{route('htmltopdf',['downloadpdf'=>'pdf'])}}">En PDF</a></li>-->

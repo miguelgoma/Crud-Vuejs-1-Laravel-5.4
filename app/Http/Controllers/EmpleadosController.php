@@ -8,7 +8,6 @@ use Validator;
 use Response;
 use Illuminate\Support\Facades\Input;
 
-
 class EmpleadosController extends Controller
 {
     public function vueCrud(){
